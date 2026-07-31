@@ -1,0 +1,183 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   INKWELL DESIGN SYSTEM — Paleta Papel & Tinta
+   Light: creme, sépia, marrom-tinta
+   Dark: azul-noite, âmbar, pergaminho escuro
+   ============================================================ */
+@theme inline {
+  /* --- Tipografia --- */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* --- Raios --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* === LIGHT MODE: Papel & Tinta === */
+  /* Fundo: creme suave de papel envelhecido */
+  --color-background: oklch(0.975 0.012 75);
+  --color-foreground: oklch(0.20 0.035 50);
+
+  /* Card: branco-creme levemente aquecido */
+  --color-card: oklch(0.99 0.008 75);
+  --color-card-foreground: oklch(0.20 0.035 50);
+
+  /* Popover */
+  --color-popover: oklch(0.99 0.008 75);
+  --color-popover-foreground: oklch(0.20 0.035 50);
+
+  /* Primary: marrom-tinta sépia */
+  --color-primary: oklch(0.42 0.08 50);
+  --color-primary-foreground: oklch(0.97 0.01 75);
+
+  /* Secondary: creme médio */
+  --color-secondary: oklch(0.93 0.018 75);
+  --color-secondary-foreground: oklch(0.30 0.04 50);
+
+  /* Muted: sépia claro */
+  --color-muted: oklch(0.92 0.015 75);
+  --color-muted-foreground: oklch(0.52 0.04 55);
+
+  /* Accent: âmbar dourado */
+  --color-accent: oklch(0.88 0.06 75);
+  --color-accent-foreground: oklch(0.22 0.04 50);
+
+  /* Destructive */
+  --color-destructive: oklch(0.55 0.22 25);
+
+  /* Bordas: sépia suave */
+  --color-border: oklch(0.87 0.022 70);
+  --color-input: oklch(0.90 0.018 72);
+  --color-ring: oklch(0.42 0.08 50);
+
+  /* Sidebar */
+  --color-sidebar-background: oklch(0.96 0.016 72);
+  --color-sidebar-foreground: oklch(0.28 0.04 50);
+  --color-sidebar-primary: oklch(0.42 0.08 50);
+  --color-sidebar-primary-foreground: oklch(0.97 0.01 75);
+  --color-sidebar-accent: oklch(0.90 0.02 72);
+  --color-sidebar-accent-foreground: oklch(0.22 0.04 50);
+  --color-sidebar-border: oklch(0.87 0.022 70);
+
+  /* Charts */
+  --color-chart-1: oklch(0.42 0.08 50);
+  --color-chart-2: oklch(0.60 0.12 200);
+  --color-chart-3: oklch(0.55 0.10 140);
+  --color-chart-4: oklch(0.70 0.14 80);
+  --color-chart-5: oklch(0.55 0.14 320);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  /* Tipografia serifada para títulos */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer base {
+  :root {
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+}
+
+/* === DARK MODE: Azul-noite & Âmbar === */
+.dark {
+  /* Fundo: azul-noite profundo */
+  --color-background: oklch(0.14 0.025 255);
+  --color-foreground: oklch(0.92 0.018 75);
+
+  /* Card: azul-noite levemente mais claro */
+  --color-card: oklch(0.18 0.028 255);
+  --color-card-foreground: oklch(0.92 0.018 75);
+
+  --color-popover: oklch(0.18 0.028 255);
+  --color-popover-foreground: oklch(0.92 0.018 75);
+
+  /* Primary: âmbar dourado */
+  --color-primary: oklch(0.72 0.14 75);
+  --color-primary-foreground: oklch(0.15 0.025 255);
+
+  /* Secondary */
+  --color-secondary: oklch(0.22 0.030 255);
+  --color-secondary-foreground: oklch(0.88 0.018 75);
+
+  /* Muted */
+  --color-muted: oklch(0.22 0.028 255);
+  --color-muted-foreground: oklch(0.62 0.025 75);
+
+  /* Accent: âmbar suave */
+  --color-accent: oklch(0.26 0.035 255);
+  --color-accent-foreground: oklch(0.90 0.020 75);
+
+  /* Bordas */
+  --color-border: oklch(0.28 0.030 255);
+  --color-input: oklch(0.25 0.028 255);
+  --color-ring: oklch(0.72 0.14 75);
+
+  /* Sidebar */
+  --color-sidebar-background: oklch(0.16 0.026 255);
+  --color-sidebar-foreground: oklch(0.85 0.018 75);
+  --color-sidebar-accent: oklch(0.24 0.030 255);
+  --color-sidebar-accent-foreground: oklch(0.90 0.018 75);
+  --color-sidebar-border: oklch(0.28 0.030 255);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.18 0.028 255);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0.030 255);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.45 0.030 255);
+}
+:not(.dark) ::-webkit-scrollbar-track {
+  background: oklch(0.92 0.015 75);
+}
+:not(.dark) ::-webkit-scrollbar-thumb {
+  background: oklch(0.78 0.025 70);
+}
+:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.65 0.030 65);
+}
+
+/* Book cover aspect ratio helper */
+.book-cover {
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+/* Texture de papel sutil no light mode */
+:not(.dark) body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Animação de entrada suave */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s var(--ease-out) both;
+}
